@@ -1,0 +1,52 @@
+#
+# VIVO	 Resource Control config, call RSC
+#
+
+config RSC_V2
+	bool "VIVO Resource Control"
+	default y
+	help
+	  This will enable VIVO Resource Control.
+
+config RSC_V2_CPU_CAP_NOTIFY
+        boolean "RSC CPU capability notify Config"
+        depends on RSC_V2
+        default y
+        help
+          If you say Y here, support will be enable cpu capability notify.
+
+config RSC_TASK_CPU_USAGE
+        boolean "RSC task cpu usage Config"
+        depends on RSC_V2
+        default y
+        help
+          If you say Y here, support will be enable task cpu usage.
+
+config RSC_UID_IO
+        boolean "RSC uid io Config"
+        depends on RSC_V2
+        default y
+        help
+          If you say Y here, support will be enable stat io by uid.
+
+config RSC_CHECK_LMK
+        boolean "RSC check task killed by lmk"
+        depends on RSC_V2
+        default y
+        help
+          If you say Y here, support will be enable check task killed by lmk.
+
+config RSC_CPU_TOP
+        boolean "RSC feed back process cpu usage"
+        depends on RSC_V2
+        default y
+        help
+          If you say Y here, support will feed back cpu usage, replay top command.
+
+config RSC_IOLIMIT
+        boolean "RSC limit io by cgroup"
+        depends on RSC_V2 && BLK_CGROUP
+        default y
+        help
+          If you say Y here, support will limit io.
+
